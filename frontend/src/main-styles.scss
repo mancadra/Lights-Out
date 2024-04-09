@@ -1,0 +1,63 @@
+// Global styles
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Inline&family=Bungee+Shade&family=Monoton&family=Oxanium:wght@200..800&family=Righteous&family=Rubik+Broken+Fax&family=Rubik+Lines&family=Tilt+Neon&family=Yellowtail&display=swap');
+
+$yellow: #ffe045;
+$gray: #626677;
+$purple-gray: #27213C;
+$neon-pink: #ff00ff;
+$white-pink: #ffa0ff;
+$dark-pink: #cd00cd;
+$white: rgb(247, 241, 254);
+$gold: #f9b939;
+$orange: #f26430;
+$peach: #f26b76;
+$tangerine: #f26430;
+$dark-blue: #0a0840;
+$darker-blue: #010326;
+
+
+
+$righteous: "Righteous", sans-serif;
+$audiowide: "Audiowide", sans-serif;
+$tiltNeon: "Tilt Neon", sans-serif;
+
+
+
+html {
+    background: $purple-gray;
+    font-family: sans-serif;
+    color: $white;
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/*h1 {
+    font-size: 70px;
+    color: $white-pink;
+    font-family: $audiowide;
+    text-shadow: 0 0 10px $dark-pink, 0 0 20px $dark-pink, 0 0 30px $dark-pink, 0 0 40px $neon-pink, 0 0 70px $neon-pink, 0 0 80px $neon-pink, 0 0 100px $neon-pink, 0 0 150px $neon-pink;
+}
+
+.header {
+    text-align: center;
+}*/
+
+h2 {
+    color: $white;
+}
+
+button {
+    background-color: $dark-pink;
+    color: $white;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    cursor: pointer;
+}

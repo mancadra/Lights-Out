@@ -1,0 +1,42 @@
+
+<div class="problem">
+    <div class="grid-container">
+        
+        @for (row of description; track row; let index = $index) {
+            @if (index % dimension == 0) {
+                <div class="row">
+                    @for (cell of description; track cell; let ix = $index) {
+                        @if (ix >= ((index / dimension))* dimension) {
+                            @if (ix < ((index / dimension) + 1) * dimension){
+                                <div class="cell">{{ cell }}</div>
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+
+        <!--
+        @for (row of dimension; track row; let index = $index) {
+            <div class="row">
+                @for (cell of description; track cell; let ix = $index) {
+                    @if (ix >= (index - 1)* dimension) {
+                        @if (ix <= index * dimension){
+                            <div class="cell"></div>
+                        }
+                    }
+                }
+            </div>
+        }
+-->
+
+
+
+
+
+
+        <!--@for (cell of description; track cell; let index = $index) {
+            <div class="cell">{{ cell }}</div>
+        }-->
+      </div>
+</div>

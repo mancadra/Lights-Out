@@ -1,0 +1,12 @@
+@import '../../../main-styles.scss';
+
+h1 {
+    font-size: 70px;
+    color: $white-pink;
+    font-family: $audiowide;
+    text-shadow: 0 0 10px $dark-pink, 0 0 20px $dark-pink, 0 0 30px $dark-pink, 0 0 40px $neon-pink, 0 0 70px $neon-pink, 0 0 80px $neon-pink, 0 0 100px $neon-pink, 0 0 150px $neon-pink;
+}
+
+.header {
+    text-align: center;
+}

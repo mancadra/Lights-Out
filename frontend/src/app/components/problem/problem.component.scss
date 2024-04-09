@@ -1,0 +1,18 @@
+@import '../../../main-styles.scss';
+
+.grid-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border-radius: 8px;
+    background-color: $gold;
+}
