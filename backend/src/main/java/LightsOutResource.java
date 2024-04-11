@@ -26,8 +26,7 @@ public class LightsOutResource {
     public Response getProblem(@PathParam("id") int id) {
         Problem problem = Problem.findById((Integer) id);
         if (problem != null) {
-            int[] description = problem.getDescription();
-            return Response.ok(description).build();
+            return Response.ok(problem).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
