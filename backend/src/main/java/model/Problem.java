@@ -21,7 +21,7 @@ public class Problem extends PanacheEntityBase {
 
     public Problem() {}
 
-    public Problem(int id, int dimension, int[] description) {
+    public Problem(Integer id, int dimension, int[] description) {
         this.id = id;
         this.dimension = dimension;
         this.description = description;
@@ -29,7 +29,7 @@ public class Problem extends PanacheEntityBase {
 
     public int getId() { return id; }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
