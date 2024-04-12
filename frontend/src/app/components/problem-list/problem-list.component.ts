@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
+import { ProblemComponent } from '../problem/problem.component';
 import { ProblemService } from '../../control/problem.service';
 import { Problem } from '../../model/problem';
 import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-left-sidebar',
-  standalone: true,
-  imports: [],
-  templateUrl: './left-sidebar.component.html',
-  styleUrl: './left-sidebar.component.scss'
-})
-export class LeftSidebarComponent {
 
+@Component({
+  selector: 'app-problem-list',
+  standalone: true,
+  imports: [
+    ProblemComponent
+  ],
+  templateUrl: './problem-list.component.html',
+  styleUrl: './problem-list.component.scss'
+})
+export class ProblemListComponent {
   constructor(private problemService: ProblemService, private router: Router) {
     this.problem = {
       dimension: 3,
@@ -25,16 +28,13 @@ export class LeftSidebarComponent {
 
   getProblems() {
     this.problemService.getProblems().subscribe((response: any) => {
+      this.problems = response;
       console.log(response);
     });
   }
 
-  viewAllProblems() {
-    this.router.navigate(['/problems']);
-  }
-
-  viewNewProblem() {
-    this.router.navigate(['/new-problem']);
+  viewSolveProblem() {
+    this.router.navigate(['/problem/:id']);
   }
 
 }

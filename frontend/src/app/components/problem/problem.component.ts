@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-problem',
@@ -10,6 +10,9 @@ import { Component } from '@angular/core';
 export class ProblemComponent {
   dimension = 3;
   description = [0, 0, 1, 0, 0, 0, 0, 0, 0];
+
+  /*@Input() dimension: number;
+  @Input() description: number[];*/
 
   ngOnInit() {
     if (typeof document !== 'undefined') {
@@ -36,4 +39,6 @@ export class ProblemComponent {
       });
     }
   }
+
+  
 }
