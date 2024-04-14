@@ -4,6 +4,8 @@ import { SolutionService } from '../../control/solution.service';
 import { Problem } from '../../model/problem';
 import { Solution } from '../../model/solution';
 import { SolutionStep } from '../../model/solutionStep';
+import { ProblemService } from '../../control/problem.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-solve-problem',
@@ -15,7 +17,7 @@ import { SolutionStep } from '../../model/solutionStep';
   styleUrl: './solve-problem.component.scss'
 })
 export class SolveProblemComponent {
-  constructor(private solutionService: SolutionService) {
+  constructor(private solutionService: SolutionService, private problemService: ProblemService, private route: ActivatedRoute) {
     this.problem = {
       dimension: 3,
       description: [0, 0, 0, 0, 0, 0, 0, 0, 0] // Example default description
@@ -31,9 +33,25 @@ export class SolveProblemComponent {
     }
   }
 
-  private problem: Problem;
+  public problem: Problem;
   private solution: Solution;
   private solutionStep : SolutionStep;
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+        const problemId = params.get('id');
+        if (problemId !== null) {
+            const id = +problemId;
+            if (!isNaN(id)) {
+                this.getProblem(id);
+            } else {
+                console.error("Invalid problem ID.");
+            }
+        } else {
+            console.error("Problem ID is not provided.");
+        }
+    });
+  }
 
   getSolutionToProblem() {
     if (this.problem && this.problem.id) {
@@ -43,6 +61,13 @@ export class SolveProblemComponent {
     } else {
       console.error("Problem ID is not defined.");
     }
+  }
+
+  getProblem(id: number) {
+    this.problemService.getProblem(id).subscribe((response: any) => {
+      this.problem = response;
+      console.log(response);
+    });
   }
 
 }

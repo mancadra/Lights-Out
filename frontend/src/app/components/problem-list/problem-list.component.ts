@@ -26,6 +26,10 @@ export class ProblemListComponent {
 
   problems: Problem[] = [];
 
+  ngOnInit() {
+    this.getProblems();
+  }
+
   getProblems() {
     this.problemService.getProblems().subscribe((response: any) => {
       this.problems = response;
@@ -33,8 +37,7 @@ export class ProblemListComponent {
     });
   }
 
-  viewSolveProblem() {
-    this.router.navigate(['/problem/:id']);
+  viewSolveProblem(problemId?: number) {
+    this.router.navigate(['/problem/', problemId]);
   }
-
 }

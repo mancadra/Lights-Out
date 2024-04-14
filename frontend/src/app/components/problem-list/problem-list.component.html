@@ -1,9 +1,7 @@
 <div class="problem-list">
     @for (problem of problems; track problem) {
-        <!--<app-problem [dimension]="problem.dimension" [description]="problem.description"></app-problem>-->
-        <!--<app-problem></app-problem>-->
-        <button class="regular-button" id="play" (click)="viewSolveProblem()">Play</button>
-        <h1> bvhebks{{ problem.dimension }}</h1>
+        <app-problem [dimension]="problem.dimension" [description]="problem.description"></app-problem>
+        <button class="regular-button" id="play" (click)="viewSolveProblem(problem?.id)">Play</button>
+        <h1> {{ problem.dimension }}x{{ problem.dimension }}</h1>
     }
-    <button class="regular-button" id="play" (click)="viewSolveProblem()">Play</button>
 </div>
