@@ -10,15 +10,15 @@ export class ProblemService {
   constructor(private webReqService: WebRequestService) { }
 
   createProblem(problem: Problem) {
-    return this.webReqService.post('problems', problem);
+    return this.webReqService.post(`problems`, problem);
   }
 
   getProblem(id: number) {
-    return this.webReqService.get('problems/${id}');
+    return this.webReqService.get(`problems/${id}`);
   }
 
   getProblems() {
-    return this.webReqService.get('problems')
+    return this.webReqService.get(`problems`);
   }
 
   

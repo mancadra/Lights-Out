@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProblemComponent } from '../problem/problem.component';
 import { SolutionService } from '../../control/solution.service';
 import { Problem } from '../../model/problem';
@@ -16,40 +16,27 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './solve-problem.component.html',
   styleUrl: './solve-problem.component.scss'
 })
-export class SolveProblemComponent {
-  constructor(private solutionService: SolutionService, private problemService: ProblemService, private route: ActivatedRoute) {
-    this.problem = {
-      dimension: 3,
-      description: [0, 0, 0, 0, 0, 0, 0, 0, 0] // Example default description
-    };
+export class SolveProblemComponent implements OnInit{
+  problem: Problem | null = null;
+  copiedProblem: Problem | null = null;
 
-    this.solution = {
-      steps_nr: 1,
-    };
-
-    this.solutionStep = {
-      description: [ 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      steps_ix: 1,
-    }
-  }
-
-  public problem: Problem;
-  private solution: Solution;
-  private solutionStep : SolutionStep;
+  constructor(private solutionService: SolutionService, private problemService: ProblemService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-        const problemId = params.get('id');
-        if (problemId !== null) {
-            const id = +problemId;
-            if (!isNaN(id)) {
-                this.getProblem(id);
-            } else {
-                console.error("Invalid problem ID.");
-            }
-        } else {
-            console.error("Problem ID is not provided.");
-        }
+      const problemId = params.get('id');
+      if (problemId) {
+        // Fetch the problem data based on the ID
+        this.problemService.getProblem(Number(problemId)).subscribe((response: any) => {
+          // Check if the response is a Problem object
+          if (response && response.dimension && response.description) {
+            this.problem = response as Problem;
+            this.copiedProblem = JSON.parse(JSON.stringify(this.problem));
+          } else {
+            console.error('Invalid response from server.');
+          }
+        });
+      }
     });
   }
 
@@ -66,8 +53,15 @@ export class SolveProblemComponent {
   getProblem(id: number) {
     this.problemService.getProblem(id).subscribe((response: any) => {
       this.problem = response;
+      this.copiedProblem = JSON.parse(JSON.stringify(this.problem));
       console.log(response);
     });
+  }
+
+  resetProblem() {
+    if (this.problem) {
+      this.copiedProblem = JSON.parse(JSON.stringify(this.problem));
+    }
   }
 
 }

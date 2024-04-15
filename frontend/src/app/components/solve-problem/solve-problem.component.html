@@ -1,3 +1,5 @@
-<app-problem [dimension]="problem.dimension" [description]="problem.description"/>
-<button class="regular-button" id="reset">Reset</button>
+@if (copiedProblem != null) {
+    <app-problem [dimension]="copiedProblem!.dimension" [description]="copiedProblem!.description"/>
+}
+<button class="regular-button" id="reset" (click)="resetProblem()">Reset</button>
 <button class="regular-button" id="solution" (click)="getSolutionToProblem()">Solution</button>
