@@ -13,6 +13,6 @@ available on: 'http://localhost:8080'
 visualization of the API: 'http://localhost:8080/q/swagger-ui'
 
 ## Running frontend 
-in the backend folder install dependencies: 'npm install' and run command: './mvnw compile quarkus:dev'
+in the backend folder install dependencies: 'npm install' and run command: 'ng serve'
 
 
