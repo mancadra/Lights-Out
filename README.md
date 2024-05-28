@@ -1,6 +1,6 @@
 # Lights-Out
 
-##in progress...
+## in progress...
 
 Lights Out is a classic puzzle game that involves toggling lights on a grid. The objective of the game is to turn off all the lights on the grid.
 
