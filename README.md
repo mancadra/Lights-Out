@@ -9,10 +9,11 @@ Technologies used: Quarkus, Angular, Postgres
 ## Running backend:
 Setup the PostgreSQL database
 in the backend folder run command: './mvnw compile quarkus:dev'
-available on: 'http://localhost:8080'
-visualization of the API: 'http://localhost:8080/q/swagger-ui'
+available at: http://localhost:8080
+visualization of the API: http://localhost:8080/q/swagger-ui
 
 ## Running frontend 
 in the backend folder install dependencies: 'npm install' and run command: 'ng serve'
+available at: http://localhost:4200
 
 
